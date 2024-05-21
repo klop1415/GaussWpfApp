@@ -1,0 +1,80 @@
+﻿<Window x:Class="GaussWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GaussWpfApp"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="Метод Гаусса" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextAlignment" Value="Right"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Margin" Value="4,2"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Margin" Value="4,2"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TabControl x:Name="tabControl1">
+            <TabItem x:Name="tabItem1">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="12" Width="12" Fill="Red" />
+                        <TextBlock FontSize="24" Margin="8">Дано</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Label Content="Число переменных N (от 2 до 12):" Width="260"  FontSize="16"/>
+                            <TextBox x:Name="textBox1" Text="3" FontSize="24" Width="60" TextAlignment="Right" PreviewKeyDown="textBox1_PreviewKeyDown"/>
+                            <Button Content="Создать" Cursor="Hand" FontSize="16" Padding="24,0" Margin="24,0" Background="#FFBFE8C7" Click="Button_Click"/>
+                            <Button Content="Расчитать" Cursor="Hand" FontSize="16" Padding="24,0" Margin="24,0" Background="#FFF5FF9E" Click="Button_Click_1" />
+                            <Label Name="timerlabel" Width="200" FontSize="16" />
+                        </StackPanel>
+                        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" >
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel x:Name="stackPanel1">
+                                </StackPanel>
+                                <StackPanel x:Name="stackPanel2" Background="#FF348BFF" Margin="6,0" >
+                                </StackPanel>
+
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="tabItem2">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Height="12" Width="12" Fill="Blue" />
+                        <TextBlock FontSize="24" Margin="3">Результаты расчетов</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ScrollViewer >
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <StackPanel x:Name="stackPanel3">
+                            </StackPanel>
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
